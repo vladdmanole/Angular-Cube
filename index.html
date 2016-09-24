@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="CubeCalendar">
+
+  <head>
+   <meta charset="UTF-8" />
+   <meta name="author" content="Vlad Manole" />
+    <style>
+@import 'https://fonts.googleapis.com/css?family=Roboto';
+    </style>
+    <script data-require="angular.js@*" data-semver="1.5.8" src="https://code.angularjs.org/1.5.8/angular.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+	<title> Cube Calendar </title>
+  </head>
+
+  <body ng-controller="MainController" ng-keydown="keyPress($event.keyCode)">
+    <h1 style="text-align:center"> Well this is Manole's Calendar Cube! </h1>
+	<div id="camera">
+    <div id="cube">
+        <div style="background-color: #607D8B" class="face one">
+            Calendar App
+        </div>
+        <div style="background-color: #03A9F4" class="face two">
+            First Upcoming Event
+        </div>
+        <div style="background-color: #29B6F6" class="face three">
+            Second Upcoming  Event
+        </div>
+        <div style=" background-color:#0288D1" class="face four">
+            Third Upcoming Event
+        </div>
+        <div style="background-color:#2196F3" class="face five">
+            Fourth Upcoming Event
+        </div>
+        <div style="background-color: #00ACC1" class="face six">
+            Made by Vlad Manole
+        </div>
+    </div>
+</div>
+
+  </body>
+
+</html>
