@@ -1,57 +1,83 @@
 <!DOCTYPE html>
 <html ng-app="CubeCalendar">
 
-  <head>
-   <meta charset="UTF-8" />
-   <meta name="author" content="Vlad Manole" />
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Vlad Manole"/>
     <style>
         @import 'https://fonts.googleapis.com/css?family=Roboto';
     </style>
     <script data-require="angular.js@*" data-semver="1.5.8" src="https://code.angularjs.org/1.5.8/angular.js"></script>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css"/>
     <script src="script.js"></script>
-	<title> Cube Calendar </title>
-  </head>
+    <title> Cube Calendar </title>
+</head>
 
-  <body ng-controller="MainController" ng-keydown="keyPress($event.keyCode)">
+<body ng-controller="MainController" ng-keydown="keyPress($event.keyCode)">
 
-  <h1 style="text-align:center"> Calendar Cube! </h1>
+<h1 style="text-align:center"> Calendar Cube!</h1>
+<h3 style="text-align:center">Use the arrow keys to navigate the cube</h3>
+<h3 style="text-align:center"> Use the "Calendar app" face to add new events and the Fourth Upcoming Event face to view
+    and edit events </h3>
 
-  <div id="camera">
-      <div id="cube" #009ECE>
+<div id="camera">
+    <div id="cube" #009ECE>
         <div style="background-color: #607D8B" class="face one">
             Calendar App
             <br/>
-            {{userSubmitedTime}}
+            Add a new event
             <br/>
             <div class="submitEvents">
                 <form id="calendarInput">
-                    <input id="eventTime" name="eventPicker" type="datetime-local" ng-model="userSubmitedTime"/>
-                    <input id="title" type="text" placeholder="Event Title"/>
-                    <textarea name="Text1" draggable="false" cols="50" rows="10"
+                    <input id="eventTime" name="eventPicker" type="datetime-local" ng-model="userSubmittedTime"/>
+                    <input id="eventTitle" type="text" placeholder="Event Title" ng-model="userSubmittedTitle"/>
+                    <textarea name="txt1" draggable="false" cols="40" rows="10" ng-model="userSubmittedText"
                               placeholder="Describe the event or make some notes."></textarea>
                     <input id="eventSubmit" type="submit"/>
                 </form>
             </div>
         </div>
-          <div style="background-color: #009ECE" class="face two">
+        <div style="background-color: #009ECE" class="face two">
             First Upcoming Event
+            {
+            {titleOne}
+            }
+            {
+            {timeOne}
+            }
+            {
+            {textOne}
+            }
         </div>
-          <div style="background-color: #009ECE" class="face three">
-            Second Upcoming  Event
+        <div style="background-color: #009ECE" class="face three">
+            Second
+            Upcoming
+            Event
+            {
+            {}
+            }
         </div>
-          <div style=" background-color: #009ECE" class="face four">
+        <div style=" background-color: #009ECE" class="face four">
             Third Upcoming Event
+            {
+            {}
+            }
         </div>
-          <div style="background-color: #009ECE" class="face five">
+        <div style="background-color: #009ECE" class="face five">
             Fourth Upcoming Event
+            {
+            {}
+            }
         </div>
-          <div style="background-color: #607D8B" class="face six">
+        <div style="background-color: #607D8B" class="face six">
             Made by Vlad Manole
+            {
+            {}
+            }
         </div>
     </div>
 </div>
 
-  </body>
+</body>
 
 </html>

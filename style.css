@@ -1,9 +1,12 @@
 html {
-  font-family: Roboto;
+    font-family: Roboto;
+    overflow: hidden;
 }
 
 textarea {
     resize: none;
+    overflow: auto
+
 }
 
 #camera {
@@ -12,60 +15,58 @@ textarea {
 }
 
 #cube {
-  position: relative;
-  margin: 250px auto;
-  height: 400px;
-  width: 400px;
-  
-  transition: transform 2s linear;
-  transform-style: preserve-3d;
+    position: relative;
+    margin: 250px auto;
+    height: 400px;
+    width: 400px;
+
+    transition: transform 2s linear;
+    transform-style: preserve-3d;
 }
 
 .face {
-  position: absolute;
-  height: 360px;
-  width: 360px;
-  padding: 20px;
+    position: absolute;
+    height: 360px;
+    width: 360px;
+    padding: 20px;
     text-shadow: -1px -1px 0 #000000,
     1px -1px 0 #000000,
     -1px 1px 0 #000000,
     1px 1px 0 #000000;
     font-size: 20px;
-  text-align: center;
-  line-height: 1.25em;
+    text-align: center;
+    line-height: 1.25em;
     color: #ffa500;
-  border: 1px solid #555;
+    border: 1px solid #555;
     border-radius: 2px;
 }
 
-#cube .one  {
-  
-  transform: rotateX(90deg) translateZ(200px);
+#cube .one {
+
+    transform: rotateX(90deg) translateZ(200px);
 }
 
 #cube .two {
-  
-  transform: translateZ(200px);
+
+    transform: translateZ(200px);
 }
 
 #cube .three {
- 
 
-  transform: rotateY(90deg) translateZ(200px);
+    transform: rotateY(90deg) translateZ(200px);
 }
 
 #cube .four {
- 
 
-  transform: rotateY(180deg) translateZ(200px);
+    transform: rotateY(180deg) translateZ(200px);
 }
 
 #cube .five {
-  
-  transform: rotateY(-90deg) translateZ(200px);
+
+    transform: rotateY(-90deg) translateZ(200px);
 }
 
 #cube .six {
-  
-  transform: rotateX(-90deg) rotate(180deg) translateZ(200px);
+
+    transform: rotateX(-90deg) rotate(180deg) translateZ(200px);
 }
