@@ -5,7 +5,7 @@
    <meta charset="UTF-8" />
    <meta name="author" content="Vlad Manole" />
     <style>
-@import 'https://fonts.googleapis.com/css?family=Roboto';
+        @import 'https://fonts.googleapis.com/css?family=Roboto';
     </style>
     <script data-require="angular.js@*" data-semver="1.5.8" src="https://code.angularjs.org/1.5.8/angular.js"></script>
     <link rel="stylesheet" href="style.css" />
@@ -14,25 +14,39 @@
   </head>
 
   <body ng-controller="MainController" ng-keydown="keyPress($event.keyCode)">
-    <h1 style="text-align:center"> Well this is Manole's Calendar Cube! </h1>
-	<div id="camera">
-    <div id="cube">
+
+  <h1 style="text-align:center"> Calendar Cube! </h1>
+
+  <div id="camera">
+      <div id="cube" #009ECE>
         <div style="background-color: #607D8B" class="face one">
             Calendar App
+            <br/>
+            {{userSubmitedTime}}
+            <br/>
+            <div class="submitEvents">
+                <form id="calendarInput">
+                    <input id="eventTime" name="eventPicker" type="datetime-local" ng-model="userSubmitedTime"/>
+                    <input id="title" type="text" placeholder="Event Title"/>
+                    <textarea name="Text1" draggable="false" cols="50" rows="10"
+                              placeholder="Describe the event or make some notes."></textarea>
+                    <input id="eventSubmit" type="submit"/>
+                </form>
+            </div>
         </div>
-        <div style="background-color: #03A9F4" class="face two">
+          <div style="background-color: #009ECE" class="face two">
             First Upcoming Event
         </div>
-        <div style="background-color: #29B6F6" class="face three">
+          <div style="background-color: #009ECE" class="face three">
             Second Upcoming  Event
         </div>
-        <div style=" background-color:#0288D1" class="face four">
+          <div style=" background-color: #009ECE" class="face four">
             Third Upcoming Event
         </div>
-        <div style="background-color:#2196F3" class="face five">
+          <div style="background-color: #009ECE" class="face five">
             Fourth Upcoming Event
         </div>
-        <div style="background-color: #00ACC1" class="face six">
+          <div style="background-color: #607D8B" class="face six">
             Made by Vlad Manole
         </div>
     </div>

@@ -2,6 +2,9 @@ html {
   font-family: Roboto;
 }
 
+textarea {
+    resize: none;
+}
 
 #camera {
     perspective: 550px;
@@ -23,13 +26,16 @@ html {
   height: 360px;
   width: 360px;
   padding: 20px;
-  
-  font-size: 15px;
+    text-shadow: -1px -1px 0 #000000,
+    1px -1px 0 #000000,
+    -1px 1px 0 #000000,
+    1px 1px 0 #000000;
+    font-size: 20px;
   text-align: center;
   line-height: 1.25em;
-  color: white;
+    color: #ffa500;
   border: 1px solid #555;
-  border-radius: 3px;
+    border-radius: 2px;
 }
 
 #cube .one  {

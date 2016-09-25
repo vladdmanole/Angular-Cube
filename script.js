@@ -14,8 +14,8 @@
           }
           document.getElementById('cube').style.transform = "rotateX(" + xAngle + "deg) rotateY(" + yAngle + "deg)";
       };
-      
-	
+
+
   };
 
   app.controller("MainController", ["$scope", MainController]);
