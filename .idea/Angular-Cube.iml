@@ -10,5 +10,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="AngularJS Debug" level="project" />
     <orderEntry type="library" name="AngularJS Release" level="project" />
+    <orderEntry type="library" name="angular-cookies" level="application" />
   </component>
 </module>

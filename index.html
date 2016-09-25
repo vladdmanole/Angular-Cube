@@ -21,7 +21,7 @@
     and edit events </h3>
 
 <div id="camera">
-    <div id="cube" #009ECE>
+    <div id="cube">
         <div style="background-color: #607D8B" class="face one">
             Calendar App
             <br/>
@@ -29,51 +29,43 @@
             <br/>
             <div class="submitEvents">
                 <form id="calendarInput">
-                    <input id="eventTime" name="eventPicker" type="datetime-local" ng-model="userSubmittedTime"/>
-                    <input id="eventTitle" type="text" placeholder="Event Title" ng-model="userSubmittedTitle"/>
-                    <textarea name="txt1" draggable="false" cols="40" rows="10" ng-model="userSubmittedText"
+                    <input class="notRotate" id="eventTime" name="eventPicker" type="datetime-local"
+                           ng-model="userTime"/>
+                    <input class="notRotate" id="eventTitle" type="text" placeholder="Event Title"
+                           ng-model="userTitle"/>
+                    <textarea class="notRotate" name="txt1" draggable="false" cols="40" rows="10" ng-model="userText"
                               placeholder="Describe the event or make some notes."></textarea>
-                    <input id="eventSubmit" type="submit"/>
+                    <input id="eventSubmit" name="Save Event" type="submit"
+                           ng-click="saveEvent(event);countTotal=countTotal+1"/>
                 </form>
             </div>
         </div>
         <div style="background-color: #009ECE" class="face two">
-            First Upcoming Event
-            {
-            {titleOne}
-            }
-            {
-            {timeOne}
-            }
-            {
-            {textOne}
-            }
+            First Upcoming Event<br/>
+            <button class="btn" ng-click="getEvent()">Get Event</button>
+            <button class="btn" ng-click="removeEvent();countTotal=count-1">Remove Event</button>
+            Number of saved events: {{count}}
         </div>
         <div style="background-color: #009ECE" class="face three">
-            Second
-            Upcoming
-            Event
-            {
-            {}
-            }
+            Second Upcoming Event
+
         </div>
         <div style=" background-color: #009ECE" class="face four">
             Third Upcoming Event
-            {
-            {}
-            }
+
         </div>
         <div style="background-color: #009ECE" class="face five">
             Fourth Upcoming Event
-            {
-            {}
-            }
+
+
         </div>
         <div style="background-color: #607D8B" class="face six">
-            Made by Vlad Manole
-            {
-            {}
-            }
+            Made by <a href="https://github.com/user/vladdmanole">Vlad Manole</a>
+            vladdmanole@gmail.com
+
+
+
+
         </div>
     </div>
 </div>

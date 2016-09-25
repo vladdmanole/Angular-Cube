@@ -2,7 +2,7 @@
 <project version="4">
   <component name="JavaScriptLibraryMappings">
     <file url="file://$PROJECT_DIR$/index.html" libraries="{AngularJS Debug}" />
-    <file url="PROJECT" libraries="{AngularJS Debug, AngularJS Release}" />
+    <file url="PROJECT" libraries="{AngularJS Debug, AngularJS Release, angular-cookies}" />
     <includedPredefinedLibrary name="Node.js Core" />
   </component>
 </project>

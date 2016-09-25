@@ -3,6 +3,14 @@ html {
     overflow: hidden;
 }
 
+.notRotate:focus {
+    background-color: lightcoral;
+}
+
+textarea:focus {
+    background-color: lightcoral;
+}
+
 textarea {
     resize: none;
     overflow: auto
