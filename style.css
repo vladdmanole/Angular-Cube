@@ -38,7 +38,7 @@ textarea {
     width: 360px;
     padding: 20px;
     text-shadow: -1px -1px 0 #000000, /* TEXT STROKE HACK */ 1px -1px 0 #000000, /* TEXT STROKE HACK */ -1px 1px 0 #000000, /* TEXT STROKE HACK */ 1px 1px 0 #000000; /* TEXT STROKE HACK */
-    font-size: 20px;
+    font-size: 10px;
     text-align: center;
     line-height: 1.25em;
     color: #ffa500;
@@ -46,6 +46,29 @@ textarea {
     border-radius: 2px;
 }
 
+.btn1 {
+    position: absolute;
+    right: 0;
+    bottom: 5px;
+}
+
+.btn2 {
+    position: absolute;
+    right: 80px;
+    bottom: 5px;
+}
+
+.btn3 {
+    position: absolute;
+    right: 185px;
+    bottom: 5px;
+}
+
+.btn4 {
+    position: absolute;
+    left: 0;
+    bottom: 5px;
+}
 #cube .one {
 
     transform: rotateX(90deg) translateZ(200px);

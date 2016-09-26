@@ -8,8 +8,10 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="AngularJS Debug" level="project" />
-    <orderEntry type="library" name="AngularJS Release" level="project" />
     <orderEntry type="library" name="angular-cookies" level="application" />
+    <orderEntry type="library" name="ngStorage" level="application" />
+    <orderEntry type="library" name="angular" level="application" />
+    <orderEntry type="library" name="AngularJS Debug" level="application" />
+    <orderEntry type="library" name="AngularJS Release" level="application" />
   </component>
 </module>

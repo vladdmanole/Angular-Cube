@@ -8,6 +8,7 @@
         @import 'https://fonts.googleapis.com/css?family=Roboto';
     </style>
     <script data-require="angular.js@*" data-semver="1.5.8" src="https://code.angularjs.org/1.5.8/angular.js"></script>
+
     <link rel="stylesheet" href="style.css"/>
     <script src="script.js"></script>
     <title> Cube Calendar </title>
@@ -16,9 +17,10 @@
 <body ng-controller="MainController" ng-keydown="keyPress($event.keyCode)">
 
 <h1 style="text-align:center"> Calendar Cube!</h1>
-<h3 style="text-align:center">Use the arrow keys to navigate the cube</h3>
-<h3 style="text-align:center"> Use the "Calendar app" face to add new events and the Fourth Upcoming Event face to view
-    and edit events </h3>
+<h3 style="text-align:center">Use the arrow keys to navigate the cube - The four lateral faces are the next 4 events
+    chronologically ordered</h3>
+<h3 style="text-align:center"> Use the "Calendar app" face to add new events and the Fourth Upcoming Event face to
+    view/edit/delete events </h3>
 
 <div id="camera">
     <div id="cube">
@@ -36,37 +38,45 @@
                     <textarea class="notRotate" name="txt1" draggable="false" cols="40" rows="10" maxlength="450"
                               ng-model="userText" placeholder="Describe the event or make some notes."></textarea>
                     <input id="eventSubmit" name="Save Event" type="submit"
-                           ng-click="saveEvent(event); countTotal = countTotal+1"/>
+                           ng-click="saveEvent(event)"/> <!-- button for saving event-->
                 </form>
             </div>
             Number of saved events: {{countTotal}}
         </div>
         <div style="background-color: #009ECE" class="face two">
             First Upcoming Event<br/>
-            <button class="btn" ng-click="getEvent()">Get Event</button>
-            <button class="btn" ng-click="removeEvent()">Remove Event</button>
+            {{userTitle1}}
+            {{userTime1}}
+            {{userText1}}
 
         </div>
         <div style="background-color: #009ECE" class="face three">
-            Second Upcoming Event
-
+            Second Upcoming Event<br/>
+            {{userTitle2}}
+            {{userTime2}}
+            {{userText2}}
         </div>
         <div style=" background-color: #009ECE" class="face four">
-            Third Upcoming Event
+            Third Upcoming Event<br/>
+            {{userTitle3}}
+            {{userTime3}}
+            {{userText3}}
 
         </div>
         <div style="background-color: #009ECE" class="face five">
-            Fourth Upcoming Event
+            <p style="font-size:20px"> Fourth Upcoming Event</p><br/>
+            {{userTitle4}}
 
+            <button class="btn1" ng-click="nextEvent()">Next Event</button>
+            <button class="btn2" ng-click="prevEvent()">Previous Event</button>
+            <button class="btn3" ng-click="removeEvent()">Remove Event</button>
+
+            <button class="btn4" ng-click="clearAll()">Clear Everything</button>
 
         </div>
-        <div style="background-color: #607D8B" class="face six">
+        <div style="background-color: lightgrey" class="face six">
             Made by <a href="https://github.com/user/vladdmanole">Vlad Manole</a>
             vladdmanole@gmail.com
-
-
-
-
         </div>
     </div>
 </div>
