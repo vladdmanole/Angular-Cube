@@ -2,29 +2,59 @@
 
     var app = angular.module("CubeCalendar", []);
 
-  var MainController = function ($scope) {
+    var MainController = function ($scope, $window) {
 
-      $scope.countTotal = 0;
+        $scope.countTotal = $window.localStorage.length;
 
-      $scope.saveEvent = function () {
-          var savedata = $scope.userTime + " " + $scope.userText + " " + $scope.userTitle;
-          $scope.countTotal = $scope.countTotal + 1;
-      };
+        var eventCycle = 3; // to be used with $scope.nextEvent
+        // it is initialised with 3 because we want to cycle from the fourth event onwards
+        // the first 3 events are on the first 3 faces so we don't need those
+        var eventStoragePull = ""; // helps converting from localStorage to string array and splitting
+                                   // the data into title,time,text
+
 
 
       $scope.saveEvent = function (event) {
-          localStorage.setItem("title" + $scope.countTotal, $scope.userTitle);
-          localStorage.setItem("text" + $scope.countTotal, $scope.userText);
-          localStorage.setItem("date" + $scope.countTotal, $scope.userTime);
+
+          $window.localStorage.setItem("event" + $scope.countTotal, $scope.userTime +
+              "|" + // using | as separator
+              $scope.userTitle + "|" + $scope.userText);
+          console.log($window.localStorage.getItem("event" + $scope.countTotal));
+          $scope.countTotal = $window.localStorage.length;
       };
 
-      $scope.getEvent = function () {
-          console.log(document.getElementById("result").innerHTML = localStorage.getItem("title" + $scope.countTotal));
+        $scope.nextEvent = function () { // cycling on the fourth face for viewing/editing
+            eventCycle++;
+            if (eventCycle >= $scope.countTotal)
+                eventCycle = $scope.countTotal - 1;
+            $scope.userTitle4 = $window.localStorage.getItem("event" + eventCycle);
+            $scope.userTime4 = $window.localStorage.getItem("event" + eventCycle);
+            $scope.userText4 = $window.localStorage.getItem("event" + eventCycle);
+
+
       };
+
+        $scope.prevEvent = function () { //cycling on the fourth face for viewing/editing
+            eventCycle--;
+            if (eventCycle < 0)
+                eventCycle = 0;
+            $scope.userTitle4 = new Date();
+            $scope.userTitle4 = $window.localStorage.getItem("event" + eventCycle);
+            $scope.userTime4 = $window.localStorage.getItem("event" + eventCycle);
+            $scope.userText4 = $window.localStorage.getItem("event" + eventCycle);
+
+        };
 
       $scope.removeEvent = function () {
-          $scope.removeEvent()
+          $window.localStorage.removeItem("");
+          $scope.countTotal = $window.localStorage.length;
       };
+
+        $scope.clearAll = function () {
+            $window.localStorage.clear();
+            $scope.countTotal = 0;
+            $window.alert("All events have been cleared!");
+        };
 
       var xAngle = yAngle = 0;
       $scope.keyPress = function (keyCode) {
@@ -48,11 +78,11 @@
                   break; // down
           }
           document.getElementById('cube').style.transform = "rotateX(" + xAngle + "deg) rotateY(" + yAngle + "deg)";
-      }
+      };
 
 
   };
 
-  app.controller("MainController", ["$scope", MainController]);
+    app.controller("MainController", ["$scope", "$window", MainController]);
 
 }());
