@@ -1,21 +1,25 @@
 (function() {
 
-    var app = angular.module("CubeCalendar");
+    var app = angular.module("CubeCalendar", []);
 
   var MainController = function ($scope) {
 
-      $scope.count = 0;
+      $scope.countTotal = 0;
+
       $scope.saveEvent = function () {
           var savedata = $scope.userTime + " " + $scope.userText + " " + $scope.userTitle;
+          $scope.countTotal = $scope.countTotal + 1;
       };
 
 
       $scope.saveEvent = function (event) {
-          localStorage("title" + count, $scope.userTitle);
+          localStorage.setItem("title" + $scope.countTotal, $scope.userTitle);
+          localStorage.setItem("text" + $scope.countTotal, $scope.userText);
+          localStorage.setItem("date" + $scope.countTotal, $scope.userTime);
       };
 
       $scope.getEvent = function () {
-          console.log(document.getElementById("result").innerHTML = localStorage.getItem("title" + $scope.count));
+          console.log(document.getElementById("result").innerHTML = localStorage.getItem("title" + $scope.countTotal));
       };
 
       $scope.removeEvent = function () {

@@ -13,7 +13,7 @@ textarea:focus {
 
 textarea {
     resize: none;
-    overflow: auto
+    overflow: hidden;
 
 }
 
@@ -24,7 +24,7 @@ textarea {
 
 #cube {
     position: relative;
-    margin: 250px auto;
+    margin: 150px auto;
     height: 400px;
     width: 400px;
 
@@ -37,10 +37,7 @@ textarea {
     height: 360px;
     width: 360px;
     padding: 20px;
-    text-shadow: -1px -1px 0 #000000,
-    1px -1px 0 #000000,
-    -1px 1px 0 #000000,
-    1px 1px 0 #000000;
+    text-shadow: -1px -1px 0 #000000, /* TEXT STROKE HACK */ 1px -1px 0 #000000, /* TEXT STROKE HACK */ -1px 1px 0 #000000, /* TEXT STROKE HACK */ 1px 1px 0 #000000; /* TEXT STROKE HACK */
     font-size: 20px;
     text-align: center;
     line-height: 1.25em;
