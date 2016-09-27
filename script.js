@@ -2,7 +2,7 @@
 
     var app = angular.module("CubeCalendar", []);
 
-    var MainController = function ($scope, $window) {
+    var MainController = function ($scope, $window, $rootScope) {
 
         var dateComparator = function (a, b) { // LEXICOGRAPHICAL SORT! ISO8601 IS THE BEST
             return a.userTime > b.userTime;
@@ -18,23 +18,23 @@
             $window.localStorage.setItem("eventSave", JSON.stringify({
                 "events": [{
                     "userTime": "2020-11-05T08:15:30+03:00",
-                    "userTitle": "My First EventText TextText Text Text Text Text Text Text Text Text Text Text Text  Text Text Text Text Text Text Text Text Text Text ",
-                    "userText": "Text 1"
+                    "userTitle": "\nMy First EventText TextText Text Text Text Text Text Text Text Text Text Text Text  Text Text Text Text Text Text Text Text Text Text ",
+                    "userText": "\nText 1"
 
                 }, {
                     "userTime": "2017-11-05T08:15:30+03:00",
-                    "userTitle": "My Secon EventText Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text ",
-                    "userText": "Text 2"
+                    "userTitle": "My Second EventText Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text ",
+                    "userText": "\next 2"
 
                 }, {
                     "userTime": "2021-11-05T08:15:30+03:00",
-                    "userTitle": "My Third EventTextText Text Text Text Text Text Text Text Text Text Text Text  Text Text Text Text Text Text Text Text Text Text Text ",
-                    "userText": "Text 3"
+                    "userTitle": "\nMy Third EventTextText Text Text Text Text Text Text Text Text Text Text Text  Text Text Text Text Text Text Text Text Text Text Text ",
+                    "userText": "\nText 3"
 
                 }, {
                     "userTime": "2017-11-05T08:15:31+03:00",
-                    "userTitle": "My Fourth Event",
-                    "userText": "Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text "
+                    "userTitle": "\nMy Fourth Event",
+                    "userText": "\nText Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text "
 
                 }
                 ]
@@ -63,7 +63,7 @@
             $scope.userTitle4 = eventStoragePull.events[3].userTitle + "\n" + eventStoragePull.events[3].userTime + "\n" + eventStoragePull.events[3].userText;
 
 
-        $scope.saveEvent = function () {
+        $rootScope.saveEvent = function () {
 
             eventStoragePull["events"].push({ // JSON ALL THE WAY
                 "userTime": $scope.userTime,
@@ -78,10 +78,10 @@
             $window.localStorage.setItem("eventSave", JSON.stringify(eventStoragePull));
             $scope.countTotal++;
 
-            $scope.userTitle1 = eventStoragePull.events[0];
-            $scope.userTitle2 = eventStoragePull.events[1];
-            $scope.userTitle3 = eventStoragePull.events[2];
-            $scope.userTitle4 = eventStoragePull.events[3];
+            $scope.userTitle1 = eventStoragePull.events[0].userTitle + "\n" + eventStoragePull.events[0].userTime + "\n" + eventStoragePull.events[0].userText;
+            $scope.userTitle2 = eventStoragePull.events[1].userTitle + "\n" + eventStoragePull.events[1].userTime + "\n" + eventStoragePull.events[1].userText;
+            $scope.userTitle3 = eventStoragePull.events[2].userTitle + "\n" + eventStoragePull.events[2].userTime + "\n" + eventStoragePull.events[2].userText;
+            $scope.userTitle4 = eventStoragePull.events[3].userTitle + "\n" + eventStoragePull.events[3].userTime + "\n" + eventStoragePull.events[3].userText;
 
             location.reload();
 
@@ -101,11 +101,11 @@
             eventCycle--;
             if (eventCycle < 0)
                 eventCycle = 0;
-            $scope.userTitle4 = eventStoragePull.events[eventCycle];
+            $scope.userTitle4 = eventStoragePull.events[eventCycle].userTitle + "\n" + eventStoragePull.events[eventCycle].userTime + "\n" + eventStoragePull.events[eventCycle].userText;
             $scope.cycle = eventCycle;
         };
 
-        $scope.removeEvent = function () {
+        $rootScope.removeEvent = function () {
             eventStoragePull.events.splice(eventCycle, 1);
 
             eventStoragePull.events.sort(dateComparator);
@@ -168,6 +168,6 @@
 
   };
 
-    app.controller("MainController", ["$scope", "$window", MainController]);
+    app.controller("MainController", ["$scope", "$window", "$rootScope", MainController]);
 
 }());
