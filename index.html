@@ -26,9 +26,7 @@
     <div id="cube">
         <div style="background-color: #607D8B" class="face one">
             Calendar App
-            <br/>
             Add a new event
-            <br/>
             <div class="submitEvents">
                 <form id="calendarInput">
                     <input id="eventTime" name="eventPicker" type="datetime-local"
@@ -43,46 +41,43 @@
             </div>
             Number of saved events: {{countTotal}}
         </div>
-        <div style="background-color: #009ECE" class="face two">
-            First Upcoming Event<br/>
-            {{userTitle1}}
-            {{userTime1}}
-            {{userText1}}
+        <div style="background-color:#009ECE" class="face two">
+            First Upcoming Event
+            <span style="word-wrap: break-word;">{{userTitle1}}</span>
+
 
         </div>
         <div style="background-color: #009ECE" class="face three">
-            Second Upcoming Event<br/>
-            {{userTitle2}}
-            {{userTime2}}
-            {{userText2}}
+            Second Upcoming Event
+            <span style="word-wrap: break-word;white-space:pre-line">{{userTitle2}}</span>
+
         </div>
         <div style=" background-color: #009ECE" class="face four">
-            Third Upcoming Event<br/>
-            {{userTitle3}}
-            {{userTime3}}
-            {{userText3}}
+            Third Upcoming Event
+            <span style="word-wrap: break-word;white-space:pre-line">{{userTitle3}}</span>
+
 
         </div>
         <div style="background-color: #009ECE" class="face five">
-            <p style="font-size:20px"> Fourth Upcoming Event</p><br/>
-            {{userTitle4}}
-            {{userTime4}}
-            {{userText4}}
+            Fourth Upcoming Event<br/>
+            <span style="word-wrap: break-word;white-space:pre-line">{{userTitle4}}</span>
+            Cycle:{{cycle}}
+            Count Total:{{countTotal}}
             <ul class="buttons">
                 <li>
-                    <button class="btn" ng-click="nextEvent()">Next Event</button>
+                    <button class="btn" ng-click="nextEvent()"><span>Next Event</span></button>
                 </li>
                 <li>
-                    <button class="btn" ng-click="prevEvent()">Previous Event</button>
+                    <button class="btn" ng-click="prevEvent()"><span>Previous Event</span></button>
                 </li>
                 <li>
-                    <button class="btn" ng-click="removeEvent()">Remove Event</button>
+                    <button class="btn" ng-click="removeEvent()"><span>Remove Event</span></button>
                 </li>
                 <li>
-                    <button class="btn" ng-click="clearAll()">Clear Events</button>
+                    <button class="btn" ng-click="clearAll()"><span>Clear Events</span></button>
                 </li>
                 <li>
-                    <button class="btn" ng-click="editEvent()">Edit</button>
+                    <button class="btn" ng-click="editEvent()"><span>Edit</span></button>
                 </li>
             </ul>
         </div>
