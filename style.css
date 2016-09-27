@@ -1,10 +1,7 @@
 html {
     font-family: Roboto;
     overflow: hidden;
-}
-
-.notRotate:focus {
-    background-color: lightcoral;
+    background-color: #f3f3f3
 }
 
 textarea:focus {
@@ -14,6 +11,23 @@ textarea:focus {
 textarea {
     resize: none;
     overflow: hidden;
+
+}
+
+.buttons {
+    list-style-type: none;
+    bottom: 0;
+    padding: 0;
+    margin-top: 70%;
+    margin-left: 13%;
+}
+
+.buttons li {
+    float: left;
+    width: 20%;
+}
+
+.btn {
 
 }
 
@@ -46,29 +60,6 @@ textarea {
     border-radius: 2px;
 }
 
-.btn1 {
-    position: absolute;
-    right: 0;
-    bottom: 5px;
-}
-
-.btn2 {
-    position: absolute;
-    right: 80px;
-    bottom: 5px;
-}
-
-.btn3 {
-    position: absolute;
-    right: 185px;
-    bottom: 5px;
-}
-
-.btn4 {
-    position: absolute;
-    left: 0;
-    bottom: 5px;
-}
 #cube .one {
 
     transform: rotateX(90deg) translateZ(200px);

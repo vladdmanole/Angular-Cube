@@ -31,14 +31,14 @@
             <br/>
             <div class="submitEvents">
                 <form id="calendarInput">
-                    <input class="notRotate" id="eventTime" name="eventPicker" type="datetime-local"
+                    <input id="eventTime" name="eventPicker" type="datetime-local"
                            ng-model="userTime"/>
-                    <input class="notRotate" id="eventTitle" type="text" placeholder="Event Title"
+                    <input id="eventTitle" type="text" placeholder="Event Title"
                            ng-model="userTitle"/>
-                    <textarea class="notRotate" name="txt1" draggable="false" cols="40" rows="10" maxlength="450"
+                    <textarea name="txt1" draggable="false" cols="40" rows="10" maxlength="450"
                               ng-model="userText" placeholder="Describe the event or make some notes."></textarea>
                     <input id="eventSubmit" name="Save Event" type="submit"
-                           ng-click="saveEvent(event)"/> <!-- button for saving event-->
+                           ng-click="saveEvent()"/> <!-- button for saving event-->
                 </form>
             </div>
             Number of saved events: {{countTotal}}
@@ -66,13 +66,25 @@
         <div style="background-color: #009ECE" class="face five">
             <p style="font-size:20px"> Fourth Upcoming Event</p><br/>
             {{userTitle4}}
-
-            <button class="btn1" ng-click="nextEvent()">Next Event</button>
-            <button class="btn2" ng-click="prevEvent()">Previous Event</button>
-            <button class="btn3" ng-click="removeEvent()">Remove Event</button>
-
-            <button class="btn4" ng-click="clearAll()">Clear Everything</button>
-
+            {{userTime4}}
+            {{userText4}}
+            <ul class="buttons">
+                <li>
+                    <button class="btn" ng-click="nextEvent()">Next Event</button>
+                </li>
+                <li>
+                    <button class="btn" ng-click="prevEvent()">Previous Event</button>
+                </li>
+                <li>
+                    <button class="btn" ng-click="removeEvent()">Remove Event</button>
+                </li>
+                <li>
+                    <button class="btn" ng-click="clearAll()">Clear Events</button>
+                </li>
+                <li>
+                    <button class="btn" ng-click="editEvent()">Edit</button>
+                </li>
+            </ul>
         </div>
         <div style="background-color: lightgrey" class="face six">
             Made by <a href="https://github.com/user/vladdmanole">Vlad Manole</a>

@@ -9,27 +9,24 @@
         var eventCycle = 3; // to be used with $scope.nextEvent
         // it is initialised with 3 because we want to cycle from the fourth event onwards
         // the first 3 events are on the first 3 faces so we don't need those
-        var eventStoragePull = ""; // helps converting from localStorage to string array and splitting
-                                   // the data into title,time,text
 
 
+        var eventStoragePull = "";
 
-      $scope.saveEvent = function (event) {
 
-          $window.localStorage.setItem("event" + $scope.countTotal, $scope.userTime +
-              "|" + // using | as separator
-              $scope.userTitle + "|" + $scope.userText);
-          console.log($window.localStorage.getItem("event" + $scope.countTotal));
+        $scope.saveEvent = function (events) {
+
+            $window.localStorage.setItem($scope.userTime, JSON.stringify(events));
+            console.log($window.localStorage.getItem($scope.userTime));
           $scope.countTotal = $window.localStorage.length;
+
       };
 
         $scope.nextEvent = function () { // cycling on the fourth face for viewing/editing
             eventCycle++;
             if (eventCycle >= $scope.countTotal)
                 eventCycle = $scope.countTotal - 1;
-            $scope.userTitle4 = $window.localStorage.getItem("event" + eventCycle);
-            $scope.userTime4 = $window.localStorage.getItem("event" + eventCycle);
-            $scope.userText4 = $window.localStorage.getItem("event" + eventCycle);
+
 
 
       };
@@ -38,25 +35,33 @@
             eventCycle--;
             if (eventCycle < 0)
                 eventCycle = 0;
-            $scope.userTitle4 = new Date();
-            $scope.userTitle4 = $window.localStorage.getItem("event" + eventCycle);
-            $scope.userTime4 = $window.localStorage.getItem("event" + eventCycle);
-            $scope.userText4 = $window.localStorage.getItem("event" + eventCycle);
+
 
         };
 
       $scope.removeEvent = function () {
-          $window.localStorage.removeItem("");
+          $window.localStorage.removeItem($scope.userTime);
           $scope.countTotal = $window.localStorage.length;
+          $window.alert("Event Removed!");
       };
 
         $scope.clearAll = function () {
-            $window.localStorage.clear();
-            $scope.countTotal = 0;
-            $window.alert("All events have been cleared!");
+            var r = $window.confirm("Are you sure? This will wipe every event you have saved!");
+            if (r == true) {
+                $window.localStorage.clear();
+                $scope.countTotal = 0;
+                $window.alert("All events have been cleared!");
+            } else {
+                $window.alert("Events not cleared!");
+            }
+
+
+
         };
 
-      var xAngle = yAngle = 0;
+
+        var xAngle = 0;
+        var yAngle = 0;
       $scope.keyPress = function (keyCode) {
           switch (keyCode) {
 
